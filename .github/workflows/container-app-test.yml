@@ -1,0 +1,20 @@
+name: app-test
+
+on:
+  workflow_dispatch: 
+  workflow_run:
+    workflows: [docker app]
+    types: completed
+
+jobs:
+  test:
+    services:
+      container:
+        image: ghcr.io/vickyr16/docker-vm-app/dev/app-image:v1
+        ports: 
+          - 3000:3000
+    runs-on: ubuntu-latest
+    steps:
+      - name: test app
+        run: |
+          curl -v http://${{runner.name}}:3000/
