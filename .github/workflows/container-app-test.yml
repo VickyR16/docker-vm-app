@@ -5,6 +5,7 @@ on:
   workflow_run:
     workflows: [docker app]
     types: completed
+    branches: docker-app-branch
 
 jobs:
   test:
