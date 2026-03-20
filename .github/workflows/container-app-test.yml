@@ -1,6 +1,7 @@
 name: app-test
 
 on:
+  workflow_dispatch: 
   workflow_run:
     workflows: [docker app]
     types: completed
