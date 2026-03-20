@@ -3,6 +3,9 @@ name: docker app
 on:
   workflow_dispatch:
 
+env:
+  prefix: ${{github.actor}}${{github.repository}}
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -21,5 +24,6 @@ jobs:
           docker build -t myapp .
       - name: docker push
         run: |
-          docker tag myapp ghcr.io/${{github.actor}}${{github.action_repository}}/vm-app/dev/doc-image:v1
-          docker push ${{github.actor}}/${{github.action_repository}}/vm-app/dev/doc-image:v1
+          echo "prefix=${{env.prefix}}" >> $GITHUB_ENV
+          docker tag myapp ghcr.io/$prefix/vm-app/dev/doc-image:v1
+          docker push ghcr.io/$prefix/vm-app/dev/doc-image:v1
