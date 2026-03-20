@@ -1,1 +1,24 @@
+name: docker app
 
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout the repo
+        uses: actions/checkout@v3
+      - name: docker login
+        uses: docker/login-action@v3
+        with:
+          username: ${{github.actor}}
+          password: ${{secrets.GITHUB_TOKEN}}
+      - name: build the image
+        run: |
+          cd app-files
+          docker build -t myapp .
+      - name: docker push
+        run: |
+          docker tag myapp ${{github.actor}}/${{github.action_repository}}/vm-app/dev/doc-image:v1
+          docker push ${{github.actor}}/${{github.action_repository}}/vm-app/dev/doc-image:v1
