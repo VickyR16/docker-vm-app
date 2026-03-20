@@ -17,4 +17,4 @@ jobs:
     steps:
       - name: test app
         run: |
-          curl -v http://${{runner.name}}:3000/
+          curl -v http://$hostname:3000/
