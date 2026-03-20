@@ -24,6 +24,6 @@ jobs:
           docker build -t myapp .
       - name: docker push
         run: |
-          echo "prefix=${{env.prefix}}" >> $GITHUB_ENV
+          echo prefix="${{env.prefix}}.toLower()" >> GITHUB_ENV
           docker tag myapp ghcr.io/$prefix/vm-app/dev/doc-image:v1
           docker push ghcr.io/$prefix/vm-app/dev/doc-image:v1
