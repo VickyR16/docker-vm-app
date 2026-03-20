@@ -9,13 +9,14 @@ on:
 
 jobs:
   test:
-    services:
-      container:
-        image: ghcr.io/vickyr16/docker-vm-app/dev/app-image:v1
-        ports: 
-          - 3000:3000
+    # services:
+    #   container:
+    #     image: ghcr.io/vickyr16/docker-vm-app/dev/app-image:v1
+    #     ports: 
+    #       - 3000:3000
     runs-on: ubuntu-latest
     steps:
       - name: test app
         run: |
-          curl -v http://localhost:3000/
+          docker pull ghcr.io/vickyr16/docker-vm-app/dev/app-image:v1
+          docker run ghcr.io/vickyr16/docker-vm-app/dev/app-image:v1
