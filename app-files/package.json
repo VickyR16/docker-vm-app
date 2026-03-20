@@ -1,0 +1,23 @@
+{
+  "name": "docker-app",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/VickyR16/docker-vm-app#readme",
+  "bugs": {
+    "url": "https://github.com/VickyR16/docker-vm-app/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VickyR16/docker-vm-app.git"
+  },
+  "license": "ISC",
+  "author": "vicky",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
