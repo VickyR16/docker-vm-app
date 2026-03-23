@@ -50,6 +50,8 @@ app.post("/test",(req,res)=>{
         //verifying the jwt authentication
         jwt.verify(token,secret)
 
+        console.log("App will be stopped as part of testing")
+
         //stop the app to avoid hung issue while testing
         process.exit(0)
     }
