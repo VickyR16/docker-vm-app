@@ -20,5 +20,5 @@ jobs:
         run: |
           cd app-files
           npm install
-          npm start:test
+          npm run start:test
           
