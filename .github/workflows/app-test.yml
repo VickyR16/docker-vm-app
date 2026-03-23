@@ -13,7 +13,7 @@ jobs:
       - name: checkout the repo
         uses: actions/checkout@v4
       - name: npm setup
-        uses: actions/node-setup@v3
+        uses: actions/setup-node@v3
         with:
           node-version: ${{matrix.node-version}}
           
