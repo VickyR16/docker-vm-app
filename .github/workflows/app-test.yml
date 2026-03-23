@@ -1,0 +1,19 @@
+name: app test
+on:
+  workflow_dispatch:
+
+jobs:
+  app-test:
+    strategy:
+      matrix:
+        os: [ubuntu-latest,windows-latest]
+        node-version: [18,22]
+    runs-on: ${{matrix.os}}
+    steps:
+      - name: checkout the repo
+        uses: actions/checkout@v4
+      - name: npm setup
+        uses: actions/node-setup@v3
+        with:
+          node-version: ${{matrix.node-version}}
+          
