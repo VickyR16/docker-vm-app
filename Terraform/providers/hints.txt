@@ -1,0 +1,6 @@
+use existing infra:
+    import - terraform import azurerm_network_security_group.sg1 /subscriptions/sub-id/resourceGroups/<rg>/providers/<resourceProvider,ex:Microsoft.Network>/<resource ex:networkSecurityGroups>/<resourceName>
+    define resource in main.tf
+    modify the changes
+
+while creation bastion, subnet name should be AzureBastionSubnet

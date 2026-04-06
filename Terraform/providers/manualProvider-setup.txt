@@ -1,0 +1,12 @@
+download the terraform file from https://releases.hashicorp.com/terraform-provider-azurerm
+unzip the downloaded file
+create directory - C:\Users\Username\AppData\Roaming\terraform.d\plugins\registry.terraform.io\hashicorp\azurerm\4.66.0\windows_amd64\
+paste the unzipped file under above directory
+create terraform.rc file under C:\Users\vigneswaran-r\AppData\Roaming directory
+paste this:
+    provider_installation {
+        filesystem_mirror {
+            path    = "C:/Users/Vigneswaran/AppData/Roaming/terraform/providers"
+            include = ["hashicorp/azurerm"]
+        }
+    }
