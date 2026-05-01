@@ -1,0 +1,24 @@
+name: Testing purpose
+on:
+  workflow_dispatch: 
+permissions:
+  packages: write
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: checkout the repo
+        uses: action/checkout@v3
+      - name: docker login
+        uses: docker/login@v3
+        with:
+          username: ${{github.actor}}
+          password: ${{github.token}}
+          repository: ghcr.io
+      - name: build container
+        run: |
+          cd app-files
+          docker build -t ghcr.io/vickyr16/docker-vm-app/test-image:v1
+          docker push ghcr.io/vickyr16/docker-vm-app/test-image:v1
+        
